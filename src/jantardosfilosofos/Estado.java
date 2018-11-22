@@ -5,19 +5,15 @@
  */
 package jantardosfilosofos;
 
-
-
 /**
  *
  * @author 2015.1.08.026
  */
-public class JantarDosFilosofos {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Estado{
     
+    public enum acaofilo{
+        PENSANDO, FOME, COMENDO;
+        
+        
+    }
 }
