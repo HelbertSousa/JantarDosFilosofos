@@ -5,7 +5,8 @@
  */
 package jantardosfilosofos;
 
-
+import java.util.Scanner;
+import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -16,8 +17,33 @@ public class JantarDosFilosofos {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+    
+
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        int n;
+        System.out.println("Digite a quantidade de filosofos");
+        n = ler.nextInt();
+        
+        Filosofos filosofos = new Filosofos(5);
+        
+        String x;
+        for (int i = 0; i < n; i++) {
+            System.out.println("Digite os Nomes dos Filosofos");
+            x = ler.nextLine();
+            Filosofos filo = new Filosofos(x,i);
+            filosofos[i] = filo;
+            semaforos[i] = new Semaphore(0);
+            filosofos[i].start();
+        }
+        
+        try {
+            Thread.sleep(10000);
+            System.exit(0);
+        } catch(InterruptedException ex){
+            System.out.println("Falhou");
+        }
+    }
+
 }
